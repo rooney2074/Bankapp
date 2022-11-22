@@ -22,15 +22,9 @@ export class LoginComponent implements OnInit {
   //userdefined methods(4th execution)
 
   userDetails:any={
-    1000:{acno:1000,
-      username:'Rony',
-      password:12345678,
-      balance:100000},
+    1000:{acno:1000,username:'Rony',password:1000,balance:100000},
     
-    1001:{acno:1001,
-      username:'Sijo',
-      password:87654321,
-      balance:100000}
+    1001:{acno:1001,username:'Sijo',password:1001,balance:100000}
   }
   
   constructor(){//1st execution
@@ -56,8 +50,9 @@ export class LoginComponent implements OnInit {
       console.log(this.pswd);
     }
 
+    // template referencing
 
-    login(a:any,p:any){
+    /*login(a:any,p:any){
       //alert("log clicked");
       var acno=a.value;
 
@@ -77,7 +72,27 @@ export class LoginComponent implements OnInit {
         alert('valid username');
       }
     }
+*/
+login(){
+  //alert("log clicked");
+  var acno=this.acno;
 
+  var pswd=this.pswd;
+
+  var userDetails=this.userDetails;
+
+  if(acno in userDetails){
+    if(pswd==userDetails[acno]['password']){
+      alert('login successful');
+    }
+    else{
+      alert('invalid password');
+    }
+  }
+  else{
+    alert('invalid username');
+  }
+}
     
   
 

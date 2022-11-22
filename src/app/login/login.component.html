@@ -16,23 +16,41 @@
             <p>{{aim}}</p>
             <form action="">
                 <!-- using $event -->
-                <div class="mb-3">
+                <!-- 
+                    <div class="mb-3">
                   <input (change)="acnoChange($event)" type="text" class="form-control" id="Login_acno" [placeholder]="account">
                 </div>
                 <div class="mb-3">
                   <input (change)="pswdChange($event)" type="password" class="form-control" id="Login_pswd" placeholder="password">
                 </div>
+                 -->
+
                 <!-- using template reference -->
-                <div class="mb-3">
+                <!-- 
+                    <div class="mb-3">
                     <input #acno type="text" class="form-control" id="Login_acno" [placeholder]="account">
                   </div>
                   <div class="mb-3">
                     <input #pswd type="password" class="form-control" id="Login_pswd" placeholder="password">
                   </div>
-               <button type="button" class="btn btn-primary"  (click)="login(acno,pswd)">Login</button><br><br>
+                 -->
+                
+                  <!-- using 2 way -->
+                  <div class="mb-3">
+                    <input [(ngModel)]="acno" type="text" class="form-control" id="Login_acno" [placeholder]="account">
+                  </div>
+                  <div class="mb-3">
+                    <input [(ngModel)]="pswd" type="password" class="form-control" id="Login_pswd" placeholder="password">
+                  </div>
+                  <!-- using template reference -->
+                  <!-- 
+                    <button type="button" class="btn btn-primary"  (click)="login(acno,pswd)">Login</button>
+                   -->
+                  <!-- using $event and 2 way -->
+               <button type="button" class="btn btn-primary"  (click)="login()">Login</button><br><br>
                <a href="#">Forget password?</a> OR <a href="./login.component.html">SignUp</a>
               </form>
     </div>
-    <script src="bank.js"></script>
+    
 </body>
 </html>
